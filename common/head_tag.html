@@ -1,0 +1,83 @@
+<script type="text/discourse-plugin" version="0.8">
+// Category Topic Button
+const i18nTopicLable = I18n.lookup("topic.create");
+api.modifyClass("component:create-topic-button", {
+  didInsertElement: function() {
+    var button = $(this),
+      category = button[0].parentView.get("category"),
+      label = button[0].label,
+      newTopicLabel = "topic.create",
+      buttonText = "";
+
+    if (category) {
+      categoryName = category.name;
+
+      if (label != newTopicLabel) {
+        return;
+      } else {
+        switch (categoryName) {
+          case "ADOK-VESZEK": // category name
+            buttonText = "Hirdetésfeladás"; // button text
+            break;
+            // repeat
+          case "MODOK":
+            buttonText = "Hirdetésfeladás";
+            break;
+            // repeat
+          case "SZETTEK":
+            buttonText = "Hirdetésfeladás";
+            break;
+            // repeat
+          case "RBA / RDA / RDTA / RTA":
+            buttonText = "Hirdetésfeladás";
+            break;
+            // repeat
+          case "PORLASZTÓS TANKOK":
+            buttonText = "Hirdetésfeladás";
+            break;
+            // repeat
+          case "KIEGÉSZÍTŐK":
+            buttonText = "Hirdetésfeladás";
+            break;
+            // repeat
+          case "AROMÁK ÉS KELLÉKEK":
+            buttonText = "Hirdetésfeladás";
+            break;
+            // repeat
+          case "ÉRTÉKELÉSEK":
+            buttonText = "Értékelés írása";
+            break;
+            // repeat
+          case "CSERE E-CIGIRE":
+            buttonText = "Hirdetésfeladás";
+            break;
+            // repeat
+          case "AUKCIÓ":
+            buttonText = "Hirdetésfeladás";
+            break;
+            // repeat
+          case "ESEMÉNYEK":
+            buttonText = "Új esemény";
+            break;
+            // repeat
+          case "TALÁLT / ELVESZTETT":
+            buttonText = "Új jelentés";
+            break;
+            // repeat
+          case "YouTuber":
+            buttonText = "Videó megosztása";
+            break;
+            // repeat
+          case "JOBBAN VAGYOK!":
+            buttonText = "Történet beküldése";
+            break;
+          // add more above this line
+          default:
+            buttonText = i18nTopicLable;
+        }
+        $("#create-topic .d-button-label").text(buttonText);
+      }
+    }
+  }
+});
+</script>
