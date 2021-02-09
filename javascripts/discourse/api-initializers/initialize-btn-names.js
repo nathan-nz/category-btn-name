@@ -16,6 +16,7 @@ const TRANSLATION_KEYS = {
   "Események": "new_event",
   "YouTuber": "share_video",
   "Jobban Vagyok!": "submit_story",
+  "Utazó Vape": "new_offer",
 };
 
 export default apiInitializer("0.8", (api) => {
