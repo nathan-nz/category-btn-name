@@ -23,6 +23,7 @@ const TRANSLATION_KEYS = {
 export default apiInitializer("0.8", (api) => {
   api.modifyClass("component:d-navigation", {
     pluginId: PLUGIN_ID,
+    
     @discourseComputed("hasDraft", "category")
     createTopicLabel(hasDraft, category) {
       if (!hasDraft && category && TRANSLATION_KEYS[category.name]) {
