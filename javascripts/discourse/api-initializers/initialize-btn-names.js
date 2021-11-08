@@ -1,6 +1,5 @@
 import { apiInitializer } from "discourse/lib/api";
 import discourseComputed from "discourse-common/utils/decorators";
-const PLUGIN_ID = 'category-btn-name';
 
 const TRANSLATION_KEYS = {
   "Adok-Veszek": "post_ad",
@@ -22,7 +21,7 @@ const TRANSLATION_KEYS = {
 
 export default apiInitializer("0.8", (api) => {
   api.modifyClass("component:d-navigation", {
-    pluginId: PLUGIN_ID,
+     pluginId: "category-btn-name",
     
     @discourseComputed("hasDraft", "category")
     createTopicLabel(hasDraft, category) {
