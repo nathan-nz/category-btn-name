@@ -5,6 +5,7 @@ const TRANSLATION_KEYS = {
   "Adok-Veszek": "post_ad",
   "Modok": "post_ad",
   "Szettek": "post_ad",
+  "Podok": "post_ad",
   "Felújítható Tankok": "post_ad",
   "Porlasztós Tankok": "post_ad",
   "Kiegészítők": "post_ad",
