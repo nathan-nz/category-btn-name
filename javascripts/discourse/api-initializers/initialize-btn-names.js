@@ -16,7 +16,6 @@ const TRANSLATION_KEYS = {
   "Elektronika": "post_ad",
   "Járművek": "post_ad",
   "Család": "post_ad",
-  "Hangszerek": "post_ad",
   "Otthon, háztartás": "post_ad",
   "Szabadidő": "post_ad",
   "Divat, ruházat": "post_ad",
