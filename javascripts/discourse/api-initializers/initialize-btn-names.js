@@ -19,7 +19,7 @@ const TRANSLATION_KEYS = {
   "Otthon, háztartás": "post_ad",
   "Szabadidő": "post_ad",
   "Divat, ruházat": "post_ad",
-  "Ingatlan": "post_ad",
+  "Ingatlanok": "post_ad",
   "Apróhirdetések": "post_ad",
   "Értékelések": "review",
   "Talált / Elveszett": "report",
