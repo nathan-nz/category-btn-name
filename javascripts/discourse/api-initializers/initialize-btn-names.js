@@ -8,7 +8,7 @@ export default apiInitializer("0.8", (api) => {
     settings.category_button_labels.forEach((entry) => {
       const { category, label } = entry;
       if (category && label) {
-        CATEGORY_LABELS[category.trim()] = label.trim();
+        CATEGORY_LABELS[parseInt(category, 10)] = label.trim();
       }
     });
   } catch (e) {
@@ -20,8 +20,8 @@ export default apiInitializer("0.8", (api) => {
     
     @discourseComputed("hasDraft", "category")
     createTopicLabel(hasDraft, category) {
-      if (!hasDraft && category && CATEGORY_LABELS[category.name]) {
-        return CATEGORY_LABELS[category.name];
+      if (!hasDraft && category && CATEGORY_LABELS[category.id]) {
+        return CATEGORY_LABELS[category.id];
       } else {
         return this._super(hasDraft);
       }
