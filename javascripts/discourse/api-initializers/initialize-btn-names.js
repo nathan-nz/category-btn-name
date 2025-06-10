@@ -3,12 +3,13 @@ import discourseComputed from "discourse-common/utils/decorators";
 
 export default apiInitializer("0.8", (api) => {
   const CATEGORY_LABELS = {};
-  
+
   try {
-    settings.category_button_labels.forEach((entry) => {
-      const { category, label } = entry;
-      if (category && label) {
-        CATEGORY_LABELS[parseInt(category, 10)] = label.trim();
+    const buttonLabels = settings.category_button_labels.split("|");
+    buttonLabels.forEach((entry) => {
+      const [categoryId, label] = entry.split("|");
+      if (categoryId && label) {
+        CATEGORY_LABELS[parseInt(categoryId, 10)] = label.trim();
       }
     });
   } catch (e) {
