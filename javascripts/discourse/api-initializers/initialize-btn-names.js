@@ -5,11 +5,11 @@ export default apiInitializer("0.8", (api) => {
   const CATEGORY_LABELS = {};
 
   try {
-    const buttonLabels = settings.category_button_labels.split("|");
+    const buttonLabels = settings.category_button_labels.split("\n");
     buttonLabels.forEach((entry) => {
-      const [categoryId, label] = entry.split("|");
+      const [categoryId, label] = entry.split(":");
       if (categoryId && label) {
-        CATEGORY_LABELS[parseInt(categoryId, 10)] = label.trim();
+        CATEGORY_LABELS[parseInt(categoryId.trim(), 10)] = label.trim();
       }
     });
   } catch (e) {
@@ -24,7 +24,7 @@ export default apiInitializer("0.8", (api) => {
       if (!hasDraft && category && CATEGORY_LABELS[category.id]) {
         return CATEGORY_LABELS[category.id];
       } else {
-        return this._super(hasDraft);
+        return this._super(hasDraft, category);
       }
     },
   });
