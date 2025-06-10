@@ -6,17 +6,18 @@ const TRANSLATION_KEYS = {
   // Add additional categories and their respective translation keys here
 };
 
-
 export default apiInitializer("0.8", (api) => {
   api.modifyClass("component:d-navigation", {
-     pluginId: "category-btn-name",
+    pluginId: "category-btn-name",
     
     @discourseComputed("hasDraft", "category")
     createTopicLabel(hasDraft, category) {
       if (!hasDraft && category && TRANSLATION_KEYS[category.name]) {
+        // Use custom translation if available
         return themePrefix(TRANSLATION_KEYS[category.name]);
       } else {
-        return this._super(hasDraft);
+        // Use 'new_topic' as the default translation key
+        return themePrefix("new_topic");
       }
     },
   });
