@@ -25,10 +25,11 @@ export default apiInitializer("0.8", (api) => {
 
     @discourseComputed("hasDraft", "category")
     createTopicLabel(hasDraft, category) {
-      if (!hasDraft && category && CATEGORY_LABELS[category.id]) {
-        return CATEGORY_LABELS[category.id];
+      if (!hasDraft && category) {
+        // Use the custom label for the specific category or fallback to defaultLabel
+        return CATEGORY_LABELS[category.id] || defaultLabel;
       } else {
-        // Use default label if category label is not found
+        // Fallback option using default topic creation label
         return defaultLabel;
       }
     },
