@@ -2,8 +2,8 @@ import { apiInitializer } from "discourse/lib/api";
 import discourseComputed from "discourse-common/utils/decorators";
 
 const TRANSLATION_KEYS = {
-  "Events": "new_event",  // Customize this as needed for specific categories
-  // Add additional categories and their custom translation keys here
+  "Events": "new_event",  // Make sure this key exists in your locales
+  // Add additional categories and their respective translation keys here
 };
 
 export default apiInitializer("0.8", (api) => {
@@ -13,11 +13,11 @@ export default apiInitializer("0.8", (api) => {
     @discourseComputed("hasDraft", "category")
     createTopicLabel(hasDraft, category) {
       if (!hasDraft && category && TRANSLATION_KEYS[category.name]) {
-        // Use the custom translation key if specified
-        return I18n.t(TRANSLATION_KEYS[category.name]);
+        // Use the specified translation key for this category
+        return I18n.t(`js.${TRANSLATION_KEYS[category.name]}`);
       } else {
         // Use the default translation key for "New Topic"
-        return I18n.t('composer.create_topic.title');
+        return I18n.t('js.composer.create_topic.title');
       }
     },
   });
