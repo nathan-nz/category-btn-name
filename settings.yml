@@ -1,0 +1,19 @@
+category_button_labels:
+  type: objects
+  default:
+    - category: "announcements"
+      label: "Create Announcement"
+    - category: "support"
+      label: "New Support Ticket"
+  schema:
+    name: category_button_label
+    identifier: category
+    properties:
+      category:
+        type: category
+        required: true
+        description: "Select a category for which you want to customize the button label."
+      label:
+        type: string
+        required: true
+        description: "Custom label for the 'Create Topic' button for the selected category."
