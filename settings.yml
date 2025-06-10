@@ -3,4 +3,4 @@ category_button_labels:
   list_type: "key_value"
   value_type: "string"
   default: ""
-  description: "Map category IDs to custom button labels using 'CategoryID|Label'."
+  description: "Map category IDs to custom button labels using 'CategoryID:Label'."
