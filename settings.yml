@@ -1,10 +1,6 @@
 category_button_labels:
   type: objects
-  default:
-    - category: "announcements"
-      label: "Create Announcement"
-    - category: "support"
-      label: "New Support Ticket"
+  default: []
   schema:
     name: category_button_label
     identifier: category
