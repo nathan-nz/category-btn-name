@@ -6,12 +6,14 @@ export default apiInitializer("0.8", (api) => {
   const defaultLabel = settings.default_button_label || "New Topic";
 
   try {
-    const buttonLabels = settings.category_button_labels.split("\n");
+    const buttonLabels = settings.category_button_labels.trim().split("\n");
     buttonLabels.forEach((entry) => {
       const [key, label] = entry.split(":");
-      const categoryId = parseInt(key.trim(), 10);
-      if (!isNaN(categoryId) && label) {
-        CATEGORY_LABELS[categoryId] = label.trim();
+      if (key && label) {
+        const categoryId = parseInt(key.trim(), 10);
+        if (!isNaN(categoryId)) {
+          CATEGORY_LABELS[categoryId] = label.trim();
+        }
       }
     });
   } catch (e) {
@@ -23,10 +25,11 @@ export default apiInitializer("0.8", (api) => {
 
     @discourseComputed("hasDraft", "category")
     createTopicLabel(hasDraft, category) {
-      if (!hasDraft && category) {
-        return CATEGORY_LABELS[category.id] || defaultLabel;
+      if (!hasDraft && category && CATEGORY_LABELS[category.id]) {
+        return CATEGORY_LABELS[category.id];
       } else {
-        return this._super(hasDraft, category);
+        // Use default label if category label is not found
+        return defaultLabel;
       }
     },
   });
