@@ -1,15 +1,6 @@
 category_button_labels:
-  type: objects
-  default: []
-  schema:
-    name: category_button_label
-    identifier: category
-    properties:
-      category:
-        type: category
-        required: true
-        description: "Select a category for which you want to customize the button label."
-      label:
-        type: string
-        required: true
-        description: "Custom label for the 'Create Topic' button for the selected category."
+  type: list
+  list_type: "key_value"
+  value_type: "string"
+  default: ""
+  description: "Map category IDs to custom button labels using 'CategoryID|Label'."
