@@ -4,3 +4,8 @@ category_button_labels:
   value_type: "string"
   default: ""
   description: "Map category IDs to custom button labels using 'CategoryID:Label'."
+
+default_button_label:
+  type: string
+  default: "New Topic"
+  description: "Default label for the Create Topic button when no specific category label is set."
