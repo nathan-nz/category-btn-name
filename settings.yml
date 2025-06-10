@@ -1,0 +1,5 @@
+category_event_labels:
+  type: list
+  list_type: category
+  default: ""
+  description: "Select categories where the 'Create Topic' button should be labeled as 'New Event'."
